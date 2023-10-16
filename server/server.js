@@ -12,7 +12,8 @@ app.get("/api/ping", (request, response) => {
 // A mock route to return some data.
 app.get("/api/movies", (request, response) => {
   console.log("❇️ Received GET request to /api/movies");
-  response.json({ data: [{ id: 1, name: '1' }, { id: 2, name: '2' }] });
+  const moviesData = require("./movies_metadata.json");
+  response.json({ data: moviesData });
 });
 
 // Express port-switching logic
