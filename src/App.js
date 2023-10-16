@@ -45,8 +45,10 @@ function App() {
   );
 }
 
-function SingleMovie({ movies }) {
+function SingleMovie() {
   const { id } = useParams();
+  const { movies } = useParams(); // Use useParams to get the movie ID from the URL
+
   const movie = movies.find((m) => m.id === parseInt(id));
 
   if (!movie) {
@@ -54,15 +56,13 @@ function SingleMovie({ movies }) {
   }
 
   return (
-    <div className="single-movie-container">
+    <div className="single-movie">
       <h1>{movie.title}</h1>
-      <div className="single-movie-details">
-        <p>Tagline: {movie.tagline}</p>
-        <p>Vote Average: {movie.vote_average}/10</p>
-        <p>Release Date: {new Date(movie.release_date).toLocaleDateString()}</p>
-        <p>Runtime: {movie.runtime} minutes</p>
-        <Link to="/">Go Back</Link>
-      </div>
+      <p>Tagline: {movie.tagline}</p>
+      <p>Vote Average: {movie.vote_average}/10</p>
+      <p>Release Date: {new Date(movie.release_date).toLocaleDateString()}</p>
+      <p>Runtime: {movie.runtime} minutes</p>
+      <Link to="/">Go Back</Link>
     </div>
   );
 }
