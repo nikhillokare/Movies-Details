@@ -15,6 +15,17 @@ app.get("/api/movies", (request, response) => {
   const moviesData = require("./movies_metadata.json");
   response.json({ data: moviesData });
 });
+app.get("/api/movie/:id", (request, response) => {
+  const moviesData = require("./movies_metadata.json");
+  const movieId = parseInt(request.params.id);
+  const movie = moviesData.find((m) => m.id === movieId);
+
+  if (movie) {
+    response.json({ data: movie });
+  } else {
+    response.status(404).json({ error: "Movie not found" });
+  }
+});
 
 // Express port-switching logic
 let port;
