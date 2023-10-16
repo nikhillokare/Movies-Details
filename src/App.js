@@ -23,7 +23,12 @@ function App() {
   }, []);
 
   return (
-   <Router>
+    <div>
+        <Routes>
+        <Route path="/movie/:id" element={<MovieDetails />} />
+        </Routes>
+      </div>
+     <Router>
       <div className="App">
         <h1>Movies List</h1>
         <div className="movie-list">
@@ -35,12 +40,7 @@ function App() {
               <Link to={`/movie/${movie.id}`}>View Details</Link> {/* Link to the movie details page */}
             </div>
           ))}
-        </div>
-        <Routes>
-        <Route path="/movie/:id" element={<MovieDetails />} />
-        <>
-      </div>
-    </Router>
+       </Router>
   );
 }
 

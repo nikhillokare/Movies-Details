@@ -1,0 +1,9 @@
+.single-movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align content to the top */
+  text-align: center;
+  margin: 20px; /* Adjust padding as needed */
+  /* Add any other CSS styles you want for the single-movie div */
+}
