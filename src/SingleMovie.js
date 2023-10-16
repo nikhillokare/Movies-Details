@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams,Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './SingleMovie.css';
 
 function SingleMovie() {
   const { id } = useParams();
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState({id});
+
 
   useEffect(() => {
     async function fetchMovieDetails() {
@@ -13,20 +14,28 @@ function SingleMovie() {
         if (response.ok) {
           const data = await response.json();
           setMovie(data.data);
+        } else {
+          setError('Error fetching movie data');
         }
       } catch (error) {
-        console.error('Error fetching movie data:', error);
+        setError('Error fetching movie data');
+      } finally {
+        setLoading(false);
       }
     }
 
     fetchMovieDetails();
   }, [id]);
 
-  if (!movie) {
+  if (loading) {
     return <div>Loading...</div>;
   }
-  const formattedReleaseDate = new Date(movie.release_date).toLocaleDateString();
 
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  const formattedReleaseDate = new Date(movie.release_date).toLocaleDateString();
   const runtimeInMinutes = `${Math.floor(movie.runtime / 60)} minutes`;
 
   return (
@@ -42,4 +51,5 @@ function SingleMovie() {
     </div>
   );
 }
+
 export default SingleMovie;

@@ -39,7 +39,7 @@ function App() {
         </div>
       </div>
       <Routes>
-      <Route path="/movie/:id" component={SingleMovie} />
+       <Route path="/movie/:id" component={SingleMovie} />
       </Routes>
     </Router>
   );

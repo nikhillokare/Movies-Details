@@ -15,6 +15,7 @@ app.get("/api/movies", (request, response) => {
   const moviesData = require("./movies_metadata.json");
   response.json({ data: moviesData });
 });
+
 app.get("/api/movie/:id", (request, response) => {
   const moviesData = require("./movies_metadata.json");
   const movieId = parseInt(request.params.id);
