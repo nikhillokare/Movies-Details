@@ -1,0 +1,31 @@
+/* SingleMovie.css */
+.single-movie-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 10px;
+}
+
+.single-movie-details {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+.single-movie-details p {
+  margin: 5px 0;
+}
+
+Link {
+  text-decoration: none;
+  color: #007bff;
+}
