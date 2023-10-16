@@ -23,24 +23,23 @@ function App() {
   }, []);
 
   return (
-    <Router>
+   <Router>
       <div className="App">
         <h1>Movies List</h1>
         <div className="movie-list">
           {movies.map((movie) => (
-            <Link to={`/movie/${movie.id}`} key={movie.id}>
-              <div className="movie-card">
-                <h2>{movie.title}</h2>
-                <p>Tagline: {movie.tagline}</p>
-                <p>Vote Average: {movie.vote_average}/10</p>
-              </div>
-            </Link>
+            <div className="movie-card" key={movie.id}>
+              <h2>{movie.title}</h2>
+              <p>Tagline: {movie.tagline}</p>
+              <p>Vote Average: {movie.vote_average}/10</p>
+              <Link to={`/movie/${movie.id}`}>View Details</Link> {/* Link to the movie details page */}
+            </div>
           ))}
         </div>
+        <Routes>
+        <Route path="/movie/:id" element={<MovieDetails />} />
+        <>
       </div>
-      <Routes>
-      <Route path="/movie/:id" element={<MovieDetails />} />
-      </Routes>
     </Router>
   );
 }

@@ -39,7 +39,6 @@ function MovieDetails() {
       <p>Runtime: {runtimeInMinutes}</p>
       <p>Status: {movie.status}</p>
       <p>Overview: {movie.overview}</p>
-      {/* Add more fields as needed */}
       <Link to="/">Go Back</Link>
     </div>
   );
