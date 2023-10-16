@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import MovieDetails from './MovieDetails'; // Import the new MovieDetails component
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import MovieDetails from "./MovieDetails"; // Import the new MovieDetails component
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -9,13 +9,13 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/api/movies');
+        const response = await fetch("/api/movies");
         if (response.ok) {
           const data = await response.json();
           setMovies(data.data);
         }
       } catch (error) {
-        console.error('Error fetching movie data:', error);
+        console.error("Error fetching movie data:", error);
       }
     }
 
@@ -23,12 +23,7 @@ function App() {
   }, []);
 
   return (
-    <div>
-        <Routes>
-        <Route path="/movie/:id" element={<MovieDetails />} />
-        </Routes>
-      </div>
-     <Router>
+    <Router>
       <div className="App">
         <h1>Movies List</h1>
         <div className="movie-list">
@@ -37,10 +32,16 @@ function App() {
               <h2>{movie.title}</h2>
               <p>Tagline: {movie.tagline}</p>
               <p>Vote Average: {movie.vote_average}/10</p>
-              <Link to={`/movie/${movie.id}`}>View Details</Link> {/* Link to the movie details page */}
+              <Link to={`/movie/${movie.id}`}>View Details</Link>{" "}
+              {/* Link to the movie details page */}
             </div>
           ))}
-       </Router>
+        </div>
+        <Routes>
+          <Route path="/movie/:id" element={<MovieDetails />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
