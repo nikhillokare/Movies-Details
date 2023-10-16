@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import './SingleMovie.css';
-import { BrowserRouter as Router, Route, Routes,Link,useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import SingleMovie from './SingleMovie'; // Import the SingleMovieDetails component
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -21,7 +21,6 @@ function App() {
 
     fetchData();
   }, []);
-  
 
   return (
     <Router>
@@ -40,11 +39,10 @@ function App() {
         </div>
       </div>
       <Routes>
-        <Route path="/movie/:id" element={<SingleMovie movie={movies[0]} />} />
+      <Route path="/movie/:id" component={SingleMovie} />
       </Routes>
     </Router>
   );
 }
-
 
 export default App;

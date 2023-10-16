@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useParams,Link } from 'react-router-dom';
+import './SingleMovie.css';
 
 function SingleMovie() {
   const { id } = useParams();
@@ -23,11 +25,8 @@ function SingleMovie() {
   if (!movie) {
     return <div>Loading...</div>;
   }
-
-  // Format release date using browser's locale settings
   const formattedReleaseDate = new Date(movie.release_date).toLocaleDateString();
 
-  // Calculate runtime in minutes
   const runtimeInMinutes = `${Math.floor(movie.runtime / 60)} minutes`;
 
   return (
@@ -39,7 +38,6 @@ function SingleMovie() {
       <p>Runtime: {runtimeInMinutes}</p>
       <p>Status: {movie.status}</p>
       <p>Overview: {movie.overview}</p>
-      {/* Add more fields as needed */}
       <Link to="/">Go Back</Link>
     </div>
   );
