@@ -14,23 +14,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and your changes will live-update automatically.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>Nice Movies:</p>
-        <p>{JSON.stringify(movies)}</p>
-        
-      </header>
+      <h1>Movies Details </h1>
     </div>
   );
 }
